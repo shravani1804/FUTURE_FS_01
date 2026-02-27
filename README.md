@@ -157,8 +157,8 @@ This portfolio demonstrates my ability to:
 
 ## 📬 Contact  
 
-Email: your-email@example.com  
-LinkedIn: https://linkedin.com/in/your-linkedin-link  
-GitHub: https://github.com/YOUR_GITHUB_USERNAME  
+Email: shravanishashiprasad@gmail.com 
+LinkedIn: https://linkedin.com/in/shravani-18
+GitHub: https://github.com/shravani1804
 
 ---
