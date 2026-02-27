@@ -1,0 +1,138 @@
+.resume-page {
+  background: #000;
+  color: white;
+  scroll-snap-type: y mandatory;
+}
+
+.story-section {
+  min-height: 100vh;
+  padding: 120px 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  scroll-snap-align: start;
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 1s ease;
+  position: relative;
+}
+
+.story-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* INTRO SECTION */
+
+.intro h1 {
+  font-size: 70px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+}
+
+.intro h2 {
+  font-size: 28px;
+  color: #38bdf8;
+  margin-bottom: 20px;
+}
+
+.intro p {
+  font-size: 20px;
+  color: rgba(255,255,255,0.7);
+}
+
+/* HEADINGS */
+
+.story-section h2 {
+  font-size: 45px;
+  margin-bottom: 40px;
+  color: #38bdf8;
+}
+
+/* CONTENT */
+
+.content h3 {
+  margin-top: 20px;
+  font-size: 22px;
+}
+
+.content p {
+  margin-top: 8px;
+  color: rgba(255,255,255,0.8);
+}
+
+.content span {
+  display: block;
+  margin-top: 5px;
+  color: #38bdf8;
+}
+
+/* PROJECT BLOCK */
+
+.project {
+  margin-bottom: 30px;
+}
+
+/* SKILLS */
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.skills span {
+  padding: 10px 20px;
+  border: 1px solid #38bdf8;
+  transition: 0.3s ease;
+}
+
+.skills span:hover {
+  background: #38bdf8;
+  color: black;
+}
+
+/* ENDING */
+
+.ending h2 {
+  font-size: 50px;
+  text-align: center;
+}
+/* SCROLL INDICATOR */
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.6);
+  cursor: pointer;
+}
+
+.scroll-indicator span {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.arrow {
+  width: 18px;
+  height: 18px;
+  border-left: 2px solid #38bdf8;
+  border-bottom: 2px solid #38bdf8;
+  transform: rotate(-45deg);
+  margin: auto;
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: rotate(-45deg) translateY(0);
+  }
+  50% {
+    transform: rotate(-45deg) translateY(8px);
+  }
+}

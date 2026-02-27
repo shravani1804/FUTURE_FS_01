@@ -1,0 +1,105 @@
+.about-page {
+  min-height: 100vh;
+  padding: 120px 0;
+  background: radial-gradient(
+      circle at 70% 30%,
+      rgba(56, 189, 248, 0.05),
+      transparent 40%
+    ),
+    #000000;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+.about-page::before {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(
+    circle,
+    rgba(56, 189, 248, 0.06),
+    transparent 60%
+  );
+  top: -200px;
+  right: -200px;
+  animation: slowGlow 10s ease-in-out infinite alternate;
+}
+
+@keyframes slowGlow {
+  from { transform: scale(1); }
+  to { transform: scale(1.2); }
+}
+/* Animated background gradient */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* SECTION */
+.about-intro {
+  width: 65%;
+  margin: 0 auto;
+  position: relative;
+  padding-left: 40px;
+}
+
+/* Vertical animated line */
+.vertical-line {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: #38bdf8;
+  animation: growLine 1.5s ease forwards;
+}
+
+@keyframes growLine {
+  from { height: 0; }
+  to { height: 100%; }
+}
+
+/* Heading */
+.about-heading {
+  font-size: 18px;
+  letter-spacing: 4px;
+  color: #38bdf8;
+  margin-bottom: 40px;
+}
+
+/* Text styling */
+.about-text p {
+  font-size: 20px;
+  line-height: 1.9;
+  margin-bottom: 35px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Typing line cursor effect */
+.typing-line::after {
+  content: "|";
+  animation: blink 1s infinite;
+  margin-left: 5px;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Hover glow keywords */
+.about-text span {
+  color: #38bdf8;
+  font-weight: 600;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.about-text span:hover {
+  text-shadow: 0 0 12px #38bdf8;
+}

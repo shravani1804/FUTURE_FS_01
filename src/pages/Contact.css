@@ -1,0 +1,207 @@
+.contact-page {
+  min-height: 100vh;
+  background-image: url('/bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Light overlay (10%) */
+.contact-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 1;
+}
+/* ================= BIG BACKGROUND TEXT ================= */
+
+.contact-bg-text {
+  position: absolute;
+  font-size: 200px;
+  font-weight: 900;
+  letter-spacing: 20px;
+  color: rgba(255, 255, 255, 0.10);
+  text-shadow: 0 0 20px rgba(255,255,255,0.05);
+  top: 50%;
+  left: 50%;
+  filter: blur(1px);
+  transform: translate(-50%, -50%);
+  animation: slowZoom 20s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes slowZoom {
+  from { transform: translate(-50%, -50%) scale(1); }
+  to { transform: translate(-50%, -50%) scale(1.08); }
+}
+
+/* ================= PARTICLES ================= */
+
+.particles span {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #38bdf8;
+  border-radius: 50%;
+  animation: floatParticle 12s linear infinite, glowPulse 3s ease-in-out infinite;
+  opacity: 0.5;
+}
+
+/* Fixed random starting positions */
+.particles span:nth-child(1) { left: 10%; top: 95%; }
+.particles span:nth-child(2) { left: 25%; top: 85%; }
+.particles span:nth-child(3) { left: 40%; top: 90%; }
+.particles span:nth-child(4) { left: 55%; top: 80%; }
+.particles span:nth-child(5) { left: 70%; top: 92%; }
+.particles span:nth-child(6) { left: 85%; top: 88%; }
+.particles span:nth-child(7) { left: 15%; top: 75%; }
+.particles span:nth-child(8) { left: 35%; top: 78%; }
+.particles span:nth-child(9) { left: 60%; top: 70%; }
+.particles span:nth-child(10) { left: 80%; top: 76%; }
+
+/* Floating upward animation */
+@keyframes floatParticle {
+  0% { transform: translateY(0); opacity: 0; }
+  10% { opacity: 0.6; }
+  100% { transform: translateY(-110vh); opacity: 0; }
+}
+
+/* Glow pulse */
+@keyframes glowPulse {
+  0% { box-shadow: 0 0 5px #38bdf8; }
+  50% { box-shadow: 0 0 15px #38bdf8; }
+  100% { box-shadow: 0 0 5px #38bdf8; }
+}
+
+/* ================= LAYOUT ================= */
+
+.contact-container {
+  width: 80%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* LEFT SECTION */
+
+.contact-left {
+  width: 45%;
+  animation: slideLeft 1s ease forwards;
+}
+
+.contact-left h1 {
+  font-size: 60px;
+  margin-bottom: 20px;
+  color: #38bdf8;
+}
+
+.contact-left p {
+  font-size: 20px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* RIGHT SECTION */
+
+.contact-right {
+  width: 45%;
+  display: flex;
+  justify-content: center;
+}
+
+.contact-card {
+  width: 100%;
+  padding: 45px;
+  background: rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: 0.4s ease;
+}
+
+/* Subtle animated glow border */
+.contact-card:hover {
+  border-color: #38bdf8;
+  box-shadow: 0 0 40px rgba(56, 189, 248, 0.3);
+}
+
+/* Heading inside card */
+
+.contact-card h3 {
+  margin-bottom: 25px;
+  font-size: 22px;
+  letter-spacing: 2px;
+  color: #38bdf8;
+}
+
+/* ================= HOVER INTERACTION ================= */
+
+.contact-card p {
+  margin-bottom: 18px;
+  font-size: 18px;
+  transition: 0.3s ease;
+  position: relative;
+  padding-left: 0;
+}
+
+/* Smooth lift */
+.contact-card p:hover {
+  transform: translateX(8px);
+}
+
+/* Animated left accent line */
+.contact-card p::before {
+  content: "";
+  position: absolute;
+  left: -15px;
+  top: 50%;
+  width: 0;
+  height: 2px;
+  background: #38bdf8;
+  transition: 0.3s ease;
+  transform: translateY(-50%);
+}
+
+.contact-card p:hover::before {
+  width: 12px;
+}
+
+/* Highlight label glow */
+.contact-card span {
+  color: #38bdf8;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.contact-card p:hover span {
+  text-shadow: 0 0 12px #38bdf8;
+}
+
+/* Links */
+
+.contact-card a {
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.contact-card a:hover {
+  color: #38bdf8;
+}
+
+/* ================= ENTRY ANIMATIONS ================= */
+
+@keyframes slideLeft {
+  from { opacity: 0; transform: translateX(-50px); }
+  to { opacity: 1; transform: translateX(0); }
+}

@@ -1,0 +1,240 @@
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+}
+
+/* ================= BACKGROUND ================= */
+.main {
+  min-height: 100vh;
+  background-image: url('/bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+/* Dark overlay */
+.main::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+/* Keep content above overlay */
+.navbar,
+.home-container,
+.floating-discover {
+  position: relative;
+  z-index: 2;
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  padding: 25px 80px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(8px);
+  z-index: 100;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #cbd5e1;
+  font-size: 14px;
+  transition: 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #38bdf8;
+}
+
+/* ================= HOME PAGE ================= */
+.home-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-left: 120px;
+}
+
+.home-content {
+  max-width: 700px;
+}
+
+.home-title {
+  font-size: 95px;
+  font-weight: 900;
+  letter-spacing: 4px;
+  margin-bottom: 20px;
+  animation: slideUp 1s ease forwards;
+}
+
+.home-tagline {
+  font-size: 22px;
+  color: #cbd5e1;
+  line-height: 1.6;
+  animation: slideUp 1.4s ease forwards;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= FLOATING DISCOVER ================= */
+.floating-discover {
+  position: absolute;
+  top: 150px;
+  right: 120px;
+  text-align: right;
+  color: #38bdf8;
+  font-size: 14px;
+  letter-spacing: 1px;
+  animation: fadeInDiscover 0.6s ease forwards;
+  opacity: 0;
+}
+
+.floating-discover span {
+  display: block;
+  margin-bottom: 10px;
+  animation: glowBlink 1.5s infinite ease-in-out;
+}
+
+/* Curvy arrow */
+.curvy-arrow {
+  animation: arrowGlow 1.5s infinite ease-in-out;
+}
+
+/* Glow blinking text */
+@keyframes glowBlink {
+  0% {
+    opacity: 1;
+    text-shadow: 0 0 5px #38bdf8;
+  }
+  50% {
+    opacity: 0.6;
+    text-shadow: 0 0 15px #38bdf8;
+  }
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 5px #38bdf8;
+  }
+}
+
+/* Arrow glow */
+@keyframes arrowGlow {
+  0% {
+    filter: drop-shadow(0 0 4px #38bdf8);
+  }
+  50% {
+    filter: drop-shadow(0 0 12px #38bdf8);
+  }
+  100% {
+    filter: drop-shadow(0 0 4px #38bdf8);
+  }
+}
+
+/* Fade in discover */
+@keyframes fadeInDiscover {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+  .home-container {
+    padding-left: 30px;
+  }
+
+  .home-title {
+    font-size: 55px;
+  }
+
+  .floating-discover {
+    display: none;
+  }
+}
+/* ================= CREATIVE RIGHT SIDE RESET ================= */
+
+.creative-side {
+  position: absolute;
+  right: 100px;
+  top: 150px;
+  text-align: right;
+  pointer-events: none;
+}
+
+.creative-side p {
+  font-size: 48px;
+  font-weight: 700;
+  margin: 40px 0;
+  letter-spacing: 4px;
+  color: rgba(255, 255, 255, 0.26);  /* more visible */
+  opacity: 0;
+  animation: textSequence 12s infinite;
+}
+
+/* stagger timing */
+.creative-side p:nth-child(1) { animation-delay: 0s; }
+.creative-side p:nth-child(2) { animation-delay: 3s; }
+.creative-side p:nth-child(3) { animation-delay: 6s; }
+.creative-side p:nth-child(4) { animation-delay: 9s; }
+@keyframes textSequence {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+    text-shadow: 0 0 0 rgba(255,255,255,0);
+  }
+
+  8% {
+    opacity: 0.5;
+    transform: translateY(0);
+    text-shadow: 0 0 12px rgba(255,255,255,0.4);
+  }
+
+  25% {
+    opacity: 0.5;
+    text-shadow: 0 0 12px rgba(255,255,255,0.4);
+  }
+
+  33% {
+    opacity: 0;
+    transform: translateY(-10px);
+    text-shadow: 0 0 0 rgba(255,255,255,0);
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
